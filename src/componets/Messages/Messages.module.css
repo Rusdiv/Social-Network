@@ -1,0 +1,27 @@
+.Messages__block {
+  display: grid;
+  grid-template-columns: 10fr 2fr;
+}
+
+.Dialog__list {
+  padding: 10px;
+  border-left: 1px solid rgb(89, 100, 134);
+}
+
+.send__block {
+  margin-top: 25px;
+  display: flex;
+  align-items: flex-end;
+}
+
+
+.Messages {
+  padding: 10px;
+}
+
+
+@media (max-width: 475px){
+  .Messages__block {
+    grid-template-columns: 10fr 2fr;
+  }
+}

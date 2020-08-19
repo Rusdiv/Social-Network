@@ -1,0 +1,25 @@
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+.header {
+  grid-area: header;
+  background-color: #3f4257;
+}
+
+.header__logo {
+  width: 70px;
+  height: 70px;
+  background-color: rgb(0, 162, 202);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App-logo {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  animation: spin 4s linear infinite;
+}
+

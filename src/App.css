@@ -1,0 +1,25 @@
+@import './normalize.css';
+
+
+.app-wrapper {
+  display: grid;
+  grid-template-areas: 
+  'header header'
+  'navigation content';
+  grid-template-rows: 70px 100%;
+  grid-template-columns: 70px 10fr;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+@media (max-width: 475px){
+  .app-wrapper {
+    grid-template-areas: 
+      'header header'
+      'content content';
+  }
+}

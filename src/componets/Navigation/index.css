@@ -1,0 +1,50 @@
+.navigation {
+  grid-area: navigation;
+  background-color: #fff;
+}
+
+.navigation-list {
+  margin: 0;
+  padding: 0;
+}
+
+.navigation-list__item{
+  margin-top: 20px;
+}
+
+
+
+.navigation-list__link {
+  color: rgb(128, 128, 128);
+  text-decoration: none;
+}
+
+.nav-icon {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: cover;
+  width: 30px;
+  height: 30px;
+}
+
+.navigation-list__message:hover {
+  background-image: url(./mail.svg);
+}
+
+.navigation-list__profile:hover {
+  background-image: url(./userHover.svg);
+}
+
+@media (max-width: 475px){
+  .navigation {
+    display: none;
+  }
+
+  .navigation.responsive {
+    display: block;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+  }
+}

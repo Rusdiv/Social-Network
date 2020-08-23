@@ -15,6 +15,7 @@
 }
 
 .text {
+  width: 100%;
   padding-left: 5px;
   color: rgb(80, 77, 77);
 }

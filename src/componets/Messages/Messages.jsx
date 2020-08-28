@@ -5,10 +5,10 @@ import Dialog from './Dialog/DIalog'
 import {TextField,Button} from '@material-ui/core'
 
 export default function Messages(props) {
-  debugger;
-  let dialogsElements = props.messagesPage.dialogData.map( (dialog) =>  <Dialog name={dialog.name} id={dialog.id}/>)
-  let messagesElements = props.messagesPage.messagesData.map( (message) =>  <Message message={message.message} id={message.id} name={message.name}/>)
-  let newMessageBody = props.messagesPage.newMessageBody;
+  
+  let dialogsElements = props.messagesPage.dialogData.map( (dialog) =>  <Dialog name={dialog.name} key={dialog.id}id={dialog.id}/>)
+  let messagesElements = props.messagesPage.messagesData.map( (message) =>  <Message message={message.message} key={message.id} id={message.id} name={message.name}/>)
+  
 
   const onNewMessageChange = (e) => {
     const body = e.target.value;
@@ -20,7 +20,7 @@ export default function Messages(props) {
       <ul className={classes.Messages}>
         {messagesElements}
         <li className={classes.send__block}>
-          <TextField label='Your Message' onChange={onNewMessageChange}/>
+          <TextField label='Your Message' onChange={onNewMessageChange} value={props.messagesPage.newMessageText}/>
           <Button  variant="contained" color='primary' onClick={props.sendMessage}>Send</Button>
         </li>
       </ul>

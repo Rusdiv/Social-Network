@@ -14,7 +14,7 @@ export default function MyPosts(props) {
     props.handleChange('','');
   }
 
-  const handleChange = () => {
+  const handleChange = (e) => {
     let title = newPostTitle.current.value;
     let text = newPostTextarea.current.value;
     props.handleChange(text,title);
@@ -31,7 +31,7 @@ export default function MyPosts(props) {
         </div>
       </div>
       <ul>
-        {props.postData.map( (post) => <Post name={post.name} text={post.text} likesCount={post.likesCount}/>)}
+        {props.postData.map( (post) => <Post name={post.name} key={post.id} text={post.text} likesCount={post.likesCount}/>)}
       </ul>
     </div>
   )

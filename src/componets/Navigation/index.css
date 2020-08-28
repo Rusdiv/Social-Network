@@ -36,6 +36,10 @@
   background-image: url(./userHover.svg);
 }
 
+.navigation-list__users:hover {
+  background-image: url(./../../accets/people.svg);
+}
+
 @media (max-width: 475px){
   .navigation {
     display: none;

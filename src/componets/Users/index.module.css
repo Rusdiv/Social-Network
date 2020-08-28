@@ -1,0 +1,37 @@
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1200px;
+  margin: 0;
+}
+
+.block {
+  margin-left: 45px;
+  text-align: center;
+  margin-top: 40px;
+  width: 125px;
+}
+
+.block:last-child {
+  margin-right: 0;
+}
+
+
+.avatar {
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 125px;
+  height: 125px;
+  object-fit: cover;
+}
+
+
+.name {
+  color: rgb(44, 135, 187);
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.selected {
+  font-weight: bold;
+}

@@ -21,18 +21,21 @@ let initialState = {
 
 export const messagesReducer = (state = initialState , action) => {
   switch (action.type) {
-    case 'SEND-MESSAGE':
+    case 'SEND-MESSAGE': {
       let body = state.newMessageText;
-      state.newMessageText = '';
-      state.messagesData.push({id: 7, message:body})
-      return {dialogData: state.dialogData, messagesData: state.messagesData}
-    case 'UPDATE-NEW-MESSAGE-BODY':
-      state.newMessageText = action.body;
+      return {...state, 
+        newMessageText: action.body, 
+        messagesData: [...state.messagesData, {id: 7, message:body}]}
+    }
+    case 'UPDATE-NEW-MESSAGE-BODY': {
+      return {...state,
+        newMessageText: action.body
+      }
+    }
     default:
       return state;
   }
 }
 
 export const sendMessageCreator = () => ({type: 'SEND-MESSAGE' })
-export const updateNewMessageBodyCreator = (body) => 
-  ({type:  'UPDATE-NEW-MESSAGE-BODY', body: body})
+export const updateNewMessageBodyCreator = (body) =>  ({type:  'UPDATE-NEW-MESSAGE-BODY', body: body})

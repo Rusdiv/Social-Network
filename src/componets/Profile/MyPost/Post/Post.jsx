@@ -6,9 +6,11 @@ export default function Post(props) {
   const { text , name , likesCount } = props;
   return (
     <li className={classes.item}>
-      <h4 className={classes.name}>{name}</h4>
-      <p className={classes.text}>{text}</p>
-      <button className={classes.like}></button> {likesCount}
+      <div>
+        <h4 className={classes.name}>{name}</h4>
+        <p className={classes.text}>{text}</p>
+        <button className={classes.like}></button> {likesCount}
+      </div>
     </li>
   )
 }

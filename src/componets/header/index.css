@@ -7,6 +7,22 @@
   background-color: #3f4257;
 }
 
+.login {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+ 
+}
+
+.login__name {
+  color: rgb(229, 239, 248);
+}
+
+.login a {
+  text-decoration: none;
+  color: aliceblue;
+}
+
 .header__logo {
   width: 70px;
   height: 70px;

@@ -21,13 +21,13 @@ export default function Navigation() {
           </NavLink>
         </li>
         <li className='navigation-list__item'>
-          <NavLink to="#" className='navigation-list__link'>
+          <NavLink to="/news" className='navigation-list__link'>
             <img src={news} className='navigation-list__news nav-icon' alt='news'/>
           </NavLink>
         </li>
         <li className='navigation-list__item'>
           <NavLink to='/users' className='navigation-list__link'>
-            <img src={users} className='navigation-list__users nav-icon' />
+            <img src={users} alt="user" className='navigation-list__users nav-icon' />
           </NavLink>
         </li>
       </ul>

@@ -1,0 +1,14 @@
+.searchInput {
+    padding: 5px;
+    font-size: 30px;
+    border-radius: 10px;
+    border: 1px solid black;
+    background: rgb(79, 156, 228);
+    outline: none;
+    color: black;
+    width: 20%;
+    position: absolute;
+    left: 10%;
+    top: 10px;
+}
+

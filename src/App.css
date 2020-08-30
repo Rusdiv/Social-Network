@@ -8,6 +8,7 @@
   'navigation content';
   grid-template-rows: 70px 1fr;
   grid-template-columns: 70px 1fr;
+  height: 100vh;
 }
 
 ul {

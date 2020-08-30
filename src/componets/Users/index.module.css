@@ -25,6 +25,9 @@
   object-fit: cover;
 }
 
+.span {
+  margin-left: 5px;
+}
 
 .name {
   color: rgb(44, 135, 187);
@@ -34,4 +37,10 @@
 
 .selected {
   font-weight: bold;
+  margin-left: 5px;
+}
+
+.loader {
+  margin: auto;
+  margin-top: 15%;
 }

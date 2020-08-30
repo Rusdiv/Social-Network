@@ -3,13 +3,20 @@ import { createStore, combineReducers } from 'redux';
 import { profileReducer } from './profile-reducer'
 import { messagesReducer } from './messages-reducer'
 import { usersReducer } from './users-reducer';
+import photoReducer from "./photo-reducer";
+import searchReducer from "./search-reducer";
+import { authReducer } from './auth-reducer';
+
 
 let redusers = combineReducers({
   profilePage: profileReducer,
   messagesPage: messagesReducer,
-  usersPage: usersReducer
+  usersPage: usersReducer,
+  photoStore: photoReducer,
+  searchStore: searchReducer,
+  auth: authReducer,
 })
 
 let store = createStore(redusers);
-window.store = store.getState()
+window.store = store;
 export default store;

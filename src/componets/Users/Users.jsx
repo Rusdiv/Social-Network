@@ -14,7 +14,7 @@ export default function Users(props) {
   return (
     <div>
         {pages.map( number => {
-          return <span className={props.selectedPage === number ? classes.selected : classes.span} 
+          return <span key={number} className={props.selectedPage === number ? classes.selected : classes.span} 
           onClick={(e) => props.onPageChange(number)}>{number}</span>
         })}
         <div className={classes.main}>

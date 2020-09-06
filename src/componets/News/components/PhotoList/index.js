@@ -13,7 +13,6 @@ const PhotoList = (props) => {
         loadPhotos
     } = props;
 
-
     useEffect(() => {
             if (searchText !== oldSearch) {
             unsplashContext.search.photos(searchText)
@@ -25,10 +24,27 @@ const PhotoList = (props) => {
         }
     });
 
+    let pageNumber = 2;
+
+    window.addEventListener('scroll' , (event) => {
+        let scrollPos = window.scrollY
+        console.log(scrollPos);
+        if(scrollPos >= 2000) {
+            unsplashContext.search.photos(searchText, pageNumber)
+                .then(toJson)
+                .then(json => {
+                    console.log(json);
+                    loadPhotos(json.results, searchText);
+                    pageNumber = pageNumber + 1
+                });
+                window.scrollTo(0, 0)
+        }
+    })
+
     if (photos)
         return (
             <div className={classes.container}>
-                { photos === [] ? <Preloader /> :
+                { photos.length === 0 ? <Preloader /> :
                     photos.map(photo => {
                         return (
                             <div key={photo.id}>

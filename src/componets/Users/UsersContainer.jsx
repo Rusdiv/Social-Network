@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import * as Axios from 'axios'
 import Users from './Users'
-import { follow, setUsers, unfollow, setPage , setUsersCount , setFetching } from '../../Redux/users-reducer'
+import { follow, setUsers, unfollow, setPage , setUsersCount , setFetching , setFollowing} from '../../Redux/users-reducer'
 import { connect } from 'react-redux'
 import Preloader from '../common/Preloader/Preloader'
-import { getUsers } from '../../API/API'
+import { usersAPI } from '../../API/API'
 
 class UsersAPIComponent extends Component {
   componentDidMount() {
@@ -23,10 +23,10 @@ class UsersAPIComponent extends Component {
   onPageChange = (number) => {
     this.props.setFetching(true);
     this.props.setPage(number);
-    getUsers(this.props.totalCount , number)
-      .then(response => {
+    usersAPI.getUsers(this.props.totalCount , number)
+      .then(data => {
       this.props.setFetching(false);
-      this.props.setUsers(response.data.items);
+      this.props.setUsers(data.items);
     })
   }
 
@@ -41,6 +41,7 @@ class UsersAPIComponent extends Component {
         users = {this.props.users}
         follow = {this.props.follow}
         unfollow = {this.props.unfollow}
+        setFollowing = {this.props.setFollowing}
       /> </>)
   }
 }
@@ -54,6 +55,7 @@ let mapStateToProps = (state) => {
     selectedPage: state.usersPage.selectedPage,
     totalUsersCount: state.usersPage.totalUsersCount,
     isFetching: state.usersPage.isFetching,
+    isFollowing: state.usersPage.isFollowing,
   }
 }
 
@@ -66,5 +68,6 @@ export default connect(mapStateToProps,
     setPage,
     setUsersCount,
     setFetching,
+    setFollowing,
   }
   )(UsersAPIComponent);

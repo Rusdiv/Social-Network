@@ -1,33 +1,18 @@
 import React, { Component } from 'react'
-import * as Axios from 'axios'
 import Users from './Users'
-import { follow, setUsers, unfollow, setPage , setUsersCount , setFetching , setFollowing} from '../../Redux/users-reducer'
+import { follow, unfollow, setPage , setUsersCount ,  setFollowing , getUsers} from '../../Redux/users-reducer'
 import { connect } from 'react-redux'
 import Preloader from '../common/Preloader/Preloader'
-import { usersAPI } from '../../API/API'
 
 class UsersAPIComponent extends Component {
   componentDidMount() {
-    this.props.setFetching(true);
-    Axios
-    .get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.selectedPage}&count=${this.props.totalCount}` ,{
-      withCredentials: true
-    })
-    .then(response => {
-      this.props.setFetching(false);
-      this.props.setUsers(response.data.items);
-      this.props.setUsersCount(response.data.totalCount);
-    })
+    this.props.getUsers(this.props.selectedPage , this.props.totalCount)
   }
   
   onPageChange = (number) => {
-    this.props.setFetching(true);
-    this.props.setPage(number);
-    usersAPI.getUsers(this.props.totalCount , number)
-      .then(data => {
-      this.props.setFetching(false);
-      this.props.setUsers(data.items);
-    })
+    this.props.getUsers(number , this.props.totalCount)
+     this.props.setPage(number);
+ 
   }
 
   render() {
@@ -64,10 +49,9 @@ export default connect(mapStateToProps,
   {
     follow,
     unfollow,
-    setUsers,
     setPage,
     setUsersCount,
-    setFetching,
     setFollowing,
+    getUsers,
   }
   )(UsersAPIComponent);

@@ -5,6 +5,8 @@ import ProfileInfo from './ProfileInfo/ProfileInfo'
 
 
 export default function Profile(props) {
+
+
   return (
     <div className='Profile'>
       <ProfileInfo profile={props.profile}/>

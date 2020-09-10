@@ -10,6 +10,9 @@ ReactDOM.render(
     <Provider store={store}>
        <App />
      </Provider>
+      <footer>
+        тут футер
+      </footer>
   </React.StrictMode>,
   document.getElementById('root')
 );

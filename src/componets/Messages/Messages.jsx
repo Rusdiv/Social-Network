@@ -3,6 +3,7 @@ import classes from './Messages.module.css'
 import Message from './Message/Message'
 import Dialog from './Dialog/DIalog'
 import {TextField,Button} from '@material-ui/core'
+import { Redirect } from 'react-router-dom'
 
 export default function Messages(props) {
   
@@ -14,6 +15,8 @@ export default function Messages(props) {
     const body = e.target.value;
     props.handleChange(body);
   }
+
+  if (props.isAuth == false) return <Redirect to='/login'/>;
 
   return (
     <div className={classes.Messages__block}>

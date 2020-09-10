@@ -19,7 +19,15 @@ export const usersAPI = {
   },
   follow(userId) {
     return instans.post(`follow/${userId}`)
+  },
+  getProfile(userId) {
+    return instans.get(`profile/${userId}`)
   }
+}
 
+export const authAPI = {
+  authMe() {
+    return instans.get('auth/me')
+  }
 }
 

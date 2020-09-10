@@ -7,6 +7,8 @@ import { Route, BrowserRouter } from 'react-router-dom';
 import UsersContainer from './componets/Users/UsersContainer';
 import News from './componets/News/News';
 import HeaderContainer from './componets/header/HeaderContainer';
+import Login from './componets/Login/Login';
+
 
 function App(props) {
   return (
@@ -25,6 +27,9 @@ function App(props) {
         />
         <Route path='/news' render={ () => 
           <News />}
+        />
+        <Route path='/login' render={ () => 
+          <Login />}
         />
       </div>
     </BrowserRouter>

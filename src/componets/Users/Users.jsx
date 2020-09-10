@@ -31,7 +31,7 @@ export default function Users(props) {
                     props.unfollow(users.id)
                 }} variant="contained">unfollow</Button> 
                 : <Button onClick={() => {
-                  props.follow(users.id)
+                    props.follow(users.id)
                   }} color='primary' variant="contained">follow</Button>}
             </div>)
           }

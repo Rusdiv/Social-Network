@@ -3,6 +3,7 @@ import {loadPhotosActionCreator, searchActionCreator} from "../../Redux/actions"
 import {connect} from "react-redux";
 import PhotoList from "./components/PhotoList";
 import SearchInput from "./components/SearchBox";
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 
 let News = (props) => {
 
@@ -46,7 +47,7 @@ const mapDispatchToProps = (dispatch) => {
         loadPhotos: (photos, searchText) => dispatch(loadPhotosActionCreator(photos, searchText)),
     }
 };
-
-//Создаем объект App со всеми связями state и store
 News = connect(mapStateToProps, mapDispatchToProps)(News);
-export default News;
+let RedirectComponent = withAuthRedirect(News);
+
+export default RedirectComponent;

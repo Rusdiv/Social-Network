@@ -16,7 +16,7 @@ export default function Messages(props) {
     props.handleChange(body);
   }
 
-  if (props.isAuth == false) return <Redirect to='/login'/>;
+  if (!props.isAuth) return <Redirect to='/login'/>;
 
   return (
     <div className={classes.Messages__block}>

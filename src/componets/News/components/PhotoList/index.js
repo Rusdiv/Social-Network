@@ -48,7 +48,7 @@ const PhotoList = (props) => {
                     photos.map(photo => {
                         return (
                             <div key={photo.id}>
-                                <img key={photo.id} src={photo.urls.small} alt='photo'/>
+                                <img key={photo.id} src={photo.urls.small} alt='somePhoto'/>
                                 <p>likes:{photo.likes}</p>
                             </div>
                         );

@@ -3,7 +3,7 @@ import UserPhoto from '../../accets/NAvatar.png'
 import { Button } from '@material-ui/core'
 import classes from './index.module.css'
 import { NavLink } from 'react-router-dom'
-import { usersAPI } from '../../API/API'
+
 
 export default function Users(props) {
   let pagesCount = Math.ceil( props.totalUsersCount / props.pageSize );
@@ -22,7 +22,7 @@ export default function Users(props) {
             props.users.map(users => 
             <div key={users.id} className={classes.block}>
                 <NavLink to={'/profile/' + users.id}>
-                  <img className={classes.avatar} alt="avatar"src={users.photos.small != null ? users.photos.small : UserPhoto}/>
+                  <img className={classes.avatar} alt="avatar" src={users.photos.small != null ? users.photos.small : UserPhoto}/>
                 </NavLink>
                 <h4 className={classes.name}>{users.name}</h4>
                 <p className={classes.status}>{users.status != null ? users.status : 'Статуса нема'}</p>

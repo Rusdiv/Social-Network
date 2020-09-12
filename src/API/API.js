@@ -1,5 +1,4 @@
 import Axios from 'axios'
-import { follow } from '../Redux/users-reducer';
 
 const instans = Axios.create({
   baseURL: 'https://social-network.samuraijs.com/api/1.0/',
@@ -21,7 +20,20 @@ export const usersAPI = {
     return instans.post(`follow/${userId}`)
   },
   getProfile(userId) {
+    console.warn('Error , please use profileAPI')
+    return profileAPI.getProfile(userId)
+  }
+}
+
+export const profileAPI = {
+  getProfile(userId) {
     return instans.get(`profile/${userId}`)
+  },
+  getStatus(userId) {
+    return instans.get(`profile/status/${userId}`)
+  },
+  updateStatus(status) {
+    return instans.get(`status`, {status})
   }
 }
 

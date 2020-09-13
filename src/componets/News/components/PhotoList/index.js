@@ -29,7 +29,7 @@ const PhotoList = (props) => {
     window.addEventListener('scroll' , (event) => {
         let scrollPos = window.scrollY
         console.log(scrollPos);
-        if(scrollPos >= 2000) {
+        if(scrollPos >= 8000) {
             unsplashContext.search.photos(searchText, pageNumber)
                 .then(toJson)
                 .then(json => {

@@ -8,10 +8,10 @@ import ProfileStatus from './ProfileStatus'
 
 export default function ProfileInfo(props) {
   return (
-    <div>
-        {!props.profile ? <Preloader /> : <img  className={classes.avatar} src={props.profile.photos.large ? props.profile.photos.large : UserPhoto} alt='avatar'/>}
+    <div className={classes.block}>
+        {!props.profile & !props.statues? <Preloader /> : <img  className={classes.avatar} src={props.profile.photos.large ? props.profile.photos.large : UserPhoto} alt='avatar'/>}
         <div className={classes.rightBlock}>
-          {!props.profile ? null : <ProfileStatus status={props.profile.aboutMe} /> }
+          {!props.profile ? null : <ProfileStatus updateStatus={props.updateStatus} status={props.status} /> }
           {!props.profile ? null : <p className={classes.job}>{props.profile.lookingForAJob ? <span>Ищю Работу:</span> : <></>}</p>}
           {!props.profile ? null : <p className={classes.jobDescr}>{props.profile.lookingForAJobDescription ? <span>{props.profile.lookingForAJobDescription}</span> : <></>}</p>}
         </div>

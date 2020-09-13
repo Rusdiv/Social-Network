@@ -33,7 +33,7 @@ export const profileAPI = {
     return instans.get(`profile/status/${userId}`)
   },
   updateStatus(status) {
-    return instans.get(`status`, {status})
+    return instans.put(`profile/status`, {status})
   }
 }
 

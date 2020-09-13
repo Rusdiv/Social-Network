@@ -28,6 +28,7 @@ let News = (props) => {
                 searchText={searchText}
                 loadPhotos={loadPhotos}
             />
+            <footer>Тут футер</footer>
         </div>
     );
 };

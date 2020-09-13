@@ -3,8 +3,11 @@
   height: 250px;
   object-fit: cover;
   border-radius: 10px;
-  margin-top: 15px;
   margin-left: 15px;
+}
+
+.block {
+  margin-top: 15px;
 }
 
 .fullName {

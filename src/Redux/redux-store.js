@@ -7,6 +7,8 @@ import photoReducer from "./photo-reducer";
 import searchReducer from "./search-reducer";
 import { authReducer } from './auth-reducer';
 import thunkMiddleware from 'redux-thunk';
+import { reducer as formReducer } from 'redux-form'
+
 
 let redusers = combineReducers({
   profilePage: profileReducer,
@@ -15,6 +17,7 @@ let redusers = combineReducers({
   photoStore: photoReducer,
   searchStore: searchReducer,
   auth: authReducer,
+  form: formReducer,
 })
 
 let store = createStore(redusers, applyMiddleware(thunkMiddleware));

@@ -1,38 +1,37 @@
 import React from 'react'
 import classes from './MyPosts.module.css'
 import Post from './Post/Post'
-import {Button} from "@material-ui/core"
+import { Field, reduxForm } from 'redux-form';
 
 export default function MyPosts(props) {
-  let newPostTitle = React.createRef();
-  let newPostTextarea = React.createRef();
 
-  const onAddPost = () => {
-    let title = newPostTitle.current.value;
-    let text = newPostTextarea.current.value;
-    props.addPost(text,title);
-    props.handleChange('','');
+  const onAddPost = (values) => {
+    props.addPost(values.postTitle, values.postBody)
   }
 
-  const handleChange = (e) => {
-    let title = newPostTitle.current.value;
-    let text = newPostTextarea.current.value;
-    props.handleChange(text,title);
-
-  }
   return (
     <div>
       <h2 className={classes.title}>My Posts</h2>
-      <div className={classes.block}>
-        <input type='text'  ref={newPostTitle} className={classes.inputTitle} onChange={handleChange} value={props.newPostTitle} placeholder='Title'/>
-        <textarea className={classes.input} ref={newPostTextarea} placeholder='Text' onChange={handleChange} value={props.newPostText} />
-        <div className={classes.buttonBlock}>
-          <Button color='primary' onClick={onAddPost}>New Post</Button>
-        </div>
-      </div>
+      <AddPostFormRedux onSubmit={onAddPost}/>
       <ul>
         {props.postData.map( (post) => <Post name={post.name} key={post.id} text={post.text} likesCount={post.likesCount}/>)}
       </ul>
     </div>
   )
 }
+
+
+const AddPostForm = (props) => {
+  return (
+    <form className={classes.block} onSubmit={props.handleSubmit}>
+      <Field type='text' component='input' name='postTitle' className={classes.inputTitle}  placeholder='Title'/>
+      <Field type='text' component='textarea' name='postBody' className={classes.input}  placeholder='Text'/>
+      <div className={classes.buttonBlock}>
+        <button color='primary' className={classes.button}>New Post</button>
+      </div>
+    </form>
+  )
+
+}
+
+const AddPostFormRedux = reduxForm({form:'addPostForm'})(AddPostForm)

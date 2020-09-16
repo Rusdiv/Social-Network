@@ -18,7 +18,6 @@ const PhotoList = (props) => {
             unsplashContext.search.photos(searchText)
                 .then(toJson)
                 .then(json => {
-                    console.log(json);
                     loadPhotos(json.results, searchText);
                 });
         }
@@ -28,7 +27,6 @@ const PhotoList = (props) => {
 
     window.addEventListener('scroll' , (event) => {
         let scrollPos = window.scrollY
-        console.log(scrollPos);
         if(scrollPos >= 8000) {
             unsplashContext.search.photos(searchText, pageNumber)
                 .then(toJson)

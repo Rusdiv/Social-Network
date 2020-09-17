@@ -14,6 +14,13 @@
  
 }
 
+.logout {
+  outline: none;
+  background-color: rgb(16, 117, 250);
+  border: 1px solid rgb(32, 79, 207);
+  color: #fff;
+}
+
 .login__name {
   color: rgb(229, 239, 248);
 }

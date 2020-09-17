@@ -12,7 +12,7 @@ export default function ProfileInfo(props) {
         {!props.profile & !props.statues? <Preloader /> : <img  className={classes.avatar} src={props.profile.photos.large ? props.profile.photos.large : UserPhoto} alt='avatar'/>}
         <div className={classes.rightBlock}>
           {!props.profile ? null : <ProfileStatus updateStatus={props.updateStatus} status={props.status} /> }
-          {!props.profile ? null : <p className={classes.job}>{props.profile.lookingForAJob ? <span>Ищю Работу:</span> : null}</p>}
+          {!props.profile ? null : <p className={classes.job}>{props.profile.lookingForAJob ? <span>Ищу Работу:</span> : null}</p>}
           {!props.profile ? null : <p className={classes.jobDescr}>{props.profile.lookingForAJobDescription ? <span>{props.profile.lookingForAJobDescription}</span> : null}</p>}
         </div>
         {props.profile != null ? <h3 className={classes.fullName}>{props.profile.fullName}</h3> : null}

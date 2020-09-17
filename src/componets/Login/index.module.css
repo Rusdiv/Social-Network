@@ -1,0 +1,28 @@
+.input {
+  margin-bottom: 15px;
+  border: 1px solid rgb(23, 90, 214);
+  border-radius: 25px;
+  padding: 10px;
+  outline: none;
+}
+
+.button {
+  max-width: 125px;
+  margin: 0 auto;
+}
+
+.h1 {
+  text-align: center;
+}
+
+
+.div {
+  margin: 10px auto;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}

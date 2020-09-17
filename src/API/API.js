@@ -40,6 +40,17 @@ export const profileAPI = {
 export const authAPI = {
   authMe() {
     return instans.get('auth/me')
+  },
+  login(email,password,rememberMe = false) {
+    return (
+      instans.post('auth/login', {email,password,rememberMe})
+    )
+  },
+  logout(email,password,rememberMe = false) {
+    return (
+      instans.delete('auth/login')
+    )
   }
+
 }
 

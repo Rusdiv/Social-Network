@@ -10,7 +10,7 @@ export default function Header(props) {
         <img src={logo} className="App-logo" alt="logo" />
       </div>
       <div className='login'>
-        {props.isAuth ? <p className="login__name">{props.login}<br/><span>{props.email}</span></p> : <NavLink to='/login'>login</NavLink>}
+        {props.isAuth ?  <p className="login__name">{props.login}<br/><button className='logout' onClick={props.logout}>log out</button></p> : <NavLink to='/login'>login</NavLink>}
       </div>
     </header>
   )

@@ -8,6 +8,12 @@ textarea {
   height: 100%;
 }
 
+.flex {
+  display: flex;
+}
+
 .errorSpan{
+  margin-top: 25px;
+  display: block;
   color: red;
 }

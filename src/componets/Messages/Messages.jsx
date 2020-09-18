@@ -32,7 +32,7 @@ export default function Messages(props) {
   )
 }
 
-const length = maxLengthCreator(15)
+const length = maxLengthCreator(300)
 
 const AddMessageForm = (props) => {
   return (

@@ -27,7 +27,8 @@ const PhotoList = (props) => {
 
     window.addEventListener('scroll' , (event) => {
         let scrollPos = window.scrollY
-        if(scrollPos >= 8000) {
+        console.log(scrollPos);
+        if(scrollPos >= 2971) {
             unsplashContext.search.photos(searchText, pageNumber)
                 .then(toJson)
                 .then(json => {
@@ -39,9 +40,15 @@ const PhotoList = (props) => {
         }
     })
 
+    let footer = document.getElementById("footer");
+    const footerClick = () => {
+        console.log(footer.offsetTop)
+    }
+    
     if (photos)
         return (
-            <div className={classes.container}>
+            <div>
+                <div className={classes.container}>
                 { photos.length === 0 ? <Preloader /> :
                     photos.map(photo => {
                         return (
@@ -52,7 +59,11 @@ const PhotoList = (props) => {
                         );
                     })
                 }
+                </div>
+                <footer id='footer'>Тут футер</footer>
+                <button onClick={footerClick}>asda</button>
             </div>
+            
         );
     else return (<div>Фотографии не найдены!</div>)
 };

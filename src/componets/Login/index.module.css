@@ -15,6 +15,11 @@
   text-align: center;
 }
 
+.allError {
+  margin: 0 auto;
+  padding: 5px;
+  color: rgb(211, 31, 31);
+}
 
 .div {
   margin: 10px auto;

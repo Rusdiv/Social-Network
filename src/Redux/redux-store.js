@@ -8,6 +8,7 @@ import searchReducer from "./search-reducer";
 import { authReducer } from './auth-reducer';
 import thunkMiddleware from 'redux-thunk';
 import { reducer as formReducer } from 'redux-form'
+import { appReducer } from './app-reducer';
 
 
 let redusers = combineReducers({
@@ -18,6 +19,7 @@ let redusers = combineReducers({
   searchStore: searchReducer,
   auth: authReducer,
   form: formReducer,
+  app: appReducer,
 })
 
 let store = createStore(redusers, applyMiddleware(thunkMiddleware));

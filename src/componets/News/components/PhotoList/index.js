@@ -25,26 +25,23 @@ const PhotoList = (props) => {
 
     let pageNumber = 2;
 
-    window.addEventListener('scroll' , (event) => {
-        let scrollPos = window.scrollY
-        console.log(scrollPos);
-        if(scrollPos >= 2971) {
-            unsplashContext.search.photos(searchText, pageNumber)
+    window.addEventListener('scroll', function() {		  
+        let windowRelativeBottom = document.documentElement.getBoundingClientRect().bottom;
+        console.log(windowRelativeBottom);
+        // если пользователь прокрутил достаточно далеко (< 100px до конца)
+        if (windowRelativeBottom < document.documentElement.clientHeight + 100) {
+          // добавим больше данных
+              unsplashContext.search.photos(searchText, pageNumber)
                 .then(toJson)
                 .then(json => {
                     console.log(json);
                     loadPhotos(json.results, searchText);
                     pageNumber = pageNumber + 1
                 });
-                window.scrollTo(0, 0)
-        }
-    })
+            }
+          
+    });
 
-    let footer = document.getElementById("footer");
-    const footerClick = () => {
-        console.log(footer.offsetTop)
-    }
-    
     if (photos)
         return (
             <div>
@@ -61,7 +58,6 @@ const PhotoList = (props) => {
                 }
                 </div>
                 <footer id='footer'>Тут футер</footer>
-                <button onClick={footerClick}>asda</button>
             </div>
             
         );

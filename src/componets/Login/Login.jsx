@@ -31,7 +31,7 @@ const LoginForm = (props) => {
     <form onSubmit={props.handleSubmit} className={styles.form}>
     <div></div>
        <div className={styles.div}>
-          <Field className={styles.input} label="email" name='email' validate={[requiredField]}  component={Input}/>
+          <Field className={styles.input} label="email" name='email' type='email' validate={[requiredField]}  component={Input}/>
        </div>
        <div className={styles.div}>
           <Field className={styles.input} label="Password" name='password' type='password' validate={[requiredField]} component={Input}/>

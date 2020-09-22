@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import Preloader from '../common/Preloader/Preloader'
 import { withAuthRedirect } from '../../hoc/withAuthRedirect'
 import { compose } from 'redux'
+import { getPageSize, getUsersCount , getTotalCount , getIsFollowing , getSelectedPage , getIsFetching , getTotalUsersCount} from '../../Redux/users-selectors'
 
 class UsersAPIComponent extends Component {
   componentDidMount() {
@@ -34,15 +35,28 @@ class UsersAPIComponent extends Component {
 }
 
 
+// let mapStateToProps = (state) => {
+//   return {
+//     users: state.usersPage.users,
+//     pageSize: state.usersPage.pageSize,
+//     totalCount: state.usersPage.totalCount,
+//     selectedPage: state.usersPage.selectedPage,
+//     totalUsersCount: state.usersPage.totalUsersCount,
+//     isFetching: state.usersPage.isFetching,
+//     isFollowing: state.usersPage.isFollowing,
+//   }
+// }
+
+
 let mapStateToProps = (state) => {
   return {
-    users: state.usersPage.users,
-    pageSize: state.usersPage.pageSize,
-    totalCount: state.usersPage.totalCount,
-    selectedPage: state.usersPage.selectedPage,
-    totalUsersCount: state.usersPage.totalUsersCount,
-    isFetching: state.usersPage.isFetching,
-    isFollowing: state.usersPage.isFollowing,
+    users: getUsersCount(state),
+    pageSize: getPageSize(state),
+    totalCount: getTotalCount(state),
+    selectedPage: getSelectedPage(state),
+    totalUsersCount: getTotalUsersCount(state),
+    isFetching: getIsFetching(state),
+    isFollowing: getIsFollowing(state),
   }
 }
 

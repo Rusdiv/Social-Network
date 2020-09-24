@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import Preloader from '../common/Preloader/Preloader'
 import { withAuthRedirect } from '../../hoc/withAuthRedirect'
 import { compose } from 'redux'
-import { getPageSize, getUsersCount , getTotalCount , getIsFollowing , getSelectedPage , getIsFetching , getTotalUsersCount} from '../../Redux/users-selectors'
+import { getPageSize, getUsersCountSuper , getTotalCount , getIsFollowing , getSelectedPage , getIsFetching , getTotalUsersCount} from '../../Redux/users-selectors'
 
 class UsersAPIComponent extends Component {
   componentDidMount() {
@@ -50,7 +50,7 @@ class UsersAPIComponent extends Component {
 
 let mapStateToProps = (state) => {
   return {
-    users: getUsersCount(state),
+    users: getUsersCountSuper(state),
     pageSize: getPageSize(state),
     totalCount: getTotalCount(state),
     selectedPage: getSelectedPage(state),

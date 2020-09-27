@@ -5,8 +5,7 @@ import { Field, reduxForm } from 'redux-form';
 import {requiredField , maxLengthCreator} from '../../../validators/validator'
 import { Textarea, Title } from '../../common/formControls/FormsControls';
 
-
-export default function MyPosts(props) {
+const MyPosts = React.memo(props => {
 
   const onAddPost = (values) => {
     props.addPost(values.postTitle, values.postBody)
@@ -21,9 +20,9 @@ export default function MyPosts(props) {
       </ul>
     </div>
   )
-}
+});
 const length = maxLengthCreator(300)
-
+export default MyPosts
 const AddPostForm = (props) => {
   return (
     <form className={classes.block} onSubmit={props.handleSubmit}>

@@ -5,7 +5,6 @@ import MessagesContainer from './componets/Messages/MessagesContainer'
 import './App.css'
 import { Route, BrowserRouter } from 'react-router-dom';
 import UsersContainer from './componets/Users/UsersContainer';
-import News from './componets/News/News';
 import HeaderContainer from './componets/header/HeaderContainer';
 import Login from './componets/Login/Login';
 import { connect } from 'react-redux';
@@ -34,9 +33,6 @@ class App extends React.Component {
           />
           <Route path='/users' render={ () => 
             <UsersContainer />}
-          />
-          <Route path='/news' render={ () => 
-            <News />}
           />
           <Route path='/login' render={ () => 
             <Login />}

@@ -1,5 +1,8 @@
 import Axios from "axios";
-import { usersAPI } from "../API/API";
+import {
+  usersAPI
+} from "../API/API";
+import { updateObjectInArray } from "../object-helper/object-helper";
 
 
 
@@ -26,28 +29,12 @@ export const usersReducer = (state = initialState, action) => {
     case FOLLOW:
       return {
         ...state,
-        users: state.users.map(users => {
-          if (users.id === action.userID) {
-            return {
-              ...users,
-              followed: true
-            }
-          }
-          return users;
-        })
+        users: updateObjectInArray(state.users , action.userID , 'id' , {followed: true})
       }
       case UNFOLLOW:
         return {
           ...state,
-          users: state.users.map(users => {
-            if (users.id === action.userID) {
-              return {
-                ...users,
-                followed: false
-              }
-            }
-            return users;
-          })
+          users: updateObjectInArray(state.users , action.userID , 'id' , {followed: false})
         }
         case SET_USERS:
           return {
@@ -117,19 +104,18 @@ export const getUsers = (selectedPage, totalCount) => {
       })
   }
 }
+
 export const follow = (userId) => {
-  return (dispatch) => {
-    usersAPI.follow(userId)
-      .then(response => {
-        if (response.data.resultCode === 0) {
-          dispatch(acceptFollow(userId))
-        }
-      });
+  return async (dispatch) => {
+    let response = await usersAPI.follow(userId)
+    if (response.data.resultCode === 0) {
+      dispatch(acceptFollow(userId))
+    }
   }
 }
 
 export const unfollow = (userId) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     usersAPI.unfollow(userId)
       .then(response => {
         if (response.data.resultCode === 0) {

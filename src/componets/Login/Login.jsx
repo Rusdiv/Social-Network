@@ -25,10 +25,10 @@ const useStyles = makeStyles({
   },
 });
 
-const LoginForm = (props) => {
+const LoginForm = ({handleSubmit , error}) => {
   const classes = useStyles();
   return (
-    <form onSubmit={props.handleSubmit} className={styles.form}>
+    <form onSubmit={handleSubmit} className={styles.form}>
     <div></div>
        <div className={styles.div}>
           <Field className={styles.input} label="email" name='email' type='email' validate={[requiredField]}  component={Input}/>
@@ -39,7 +39,7 @@ const LoginForm = (props) => {
        <div className={styles.div}>
           <Field className={styles.box}  type='checkbox' name='rememberMe' component={'input'}/> remember me
       </div>
-      {props.error && <div className={styles.allError}>{props.error}</div>}
+      {error && <div className={styles.allError}>{error}</div>}
       <button className={classes.root}>Login</button>
     </form>
   )

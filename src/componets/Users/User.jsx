@@ -15,7 +15,7 @@ export default function User(props) {
                   <img className={classes.avatar} alt="avatar" src={users.photos.small != null ? users.photos.small : UserPhoto}/>
                 </NavLink>
                 <h4 className={classes.name}>{users.name}</h4>
-                <p className={classes.status}>{users.status != null ? users.status : 'Статуса нема'}</p>
+                <p className={classes.status}>{users.status != null ? users.status : 'Status'}</p>
                 {users.followed 
                 ? <Button color='primary' onClick={() => {
                     props.unfollow(users.id)

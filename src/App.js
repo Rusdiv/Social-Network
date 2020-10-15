@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Navigation from './componets/Navigation/Navigation'
 import ProfileContainer from './componets/Profile/ProfileContainer'
 import MessagesContainer from './componets/Messages/MessagesContainer'
 import './App.css'
 import { Route, BrowserRouter } from 'react-router-dom';
-import UsersContainer from './componets/Users/UsersContainer';
 import HeaderContainer from './componets/header/HeaderContainer';
 import Login from './componets/Login/Login';
 import { connect } from 'react-redux';
 import { initializeApp } from './Redux/app-reducer';
 import Preloader from './componets/common/Preloader/Preloader';
+
+const UsersContainer = React.lazy(() => import('./componets/Users/UsersContainer'));
 
 
 class App extends React.Component {
@@ -31,8 +32,12 @@ class App extends React.Component {
           <Route path='/messages' render={ () => 
             <MessagesContainer />}
           />
-          <Route path='/users' render={ () => 
-            <UsersContainer />}
+          <Route path='/users' render={ () => {
+            return (<Suspense fallback={<div>Loading...</div>}>
+                        <UsersContainer />
+                    </Suspense>)
+          }
+            }
           />
           <Route path='/login' render={ () => 
             <Login />}

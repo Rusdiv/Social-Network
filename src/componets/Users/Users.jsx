@@ -1,9 +1,6 @@
 import React from 'react'
-import UserPhoto from '../../accets/NAvatar.png'
-import { Button } from '@material-ui/core'
 import classes from './index.module.css'
-import { NavLink } from 'react-router-dom'
-import Paginator from './UsersPaginator'
+import Paginator from '../common/Paginator/Paginator'
 import User from './User'
 
 
@@ -15,7 +12,7 @@ export default function Users(props) {
   }
   return (
     <div>
-      <Paginator  pages = {pages} selectedPage = {props.selectedPage} onPageChange = {props.onPageChange}/>
+      <Paginator pagesCount={pagesCount} selectedPage={props.selectedPage} onPageChanged={props.onPageChange}/>
 
         <div className={classes.main}>
           {

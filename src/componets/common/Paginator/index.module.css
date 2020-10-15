@@ -1,0 +1,28 @@
+.block {
+  display: inline-block;
+  width: 25px;
+  border: 1px solid rgb(79, 126, 196);
+  text-align: center;
+  cursor: pointer;
+}
+
+.selectedPage {
+  background-color: rgba(0, 0, 0, 0.158);
+  display: inline-block;
+  width: 25px;
+  border: 1px solid rgb(79, 126, 196);
+  text-align: center;
+  cursor: pointer;
+}
+
+.pagBlock {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}

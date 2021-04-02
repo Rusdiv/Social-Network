@@ -20,7 +20,7 @@ const Paginator = ({pagesCount, onPageChanged}) => {
       {portionNumber > 1 && <Button variant="contained" color="primary" onClick={() => setPortionNumber(portionNumber - 1)}>PREV</Button>}
         <div className={styles.pagBlock}>
           {pages.filter( p => p >= left && p <= rigth).map( p => {
-            return <span className={selectedPage == p ? styles.selectedPage : styles.block} onClick={() => {
+            return <span className={selectedPage === p ? styles.selectedPage : styles.block} onClick={() => {
               onPageChanged(p)
               setSelectetPage(p)
             }} key={p}>

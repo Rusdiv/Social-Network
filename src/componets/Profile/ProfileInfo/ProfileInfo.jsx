@@ -2,7 +2,6 @@ import React from 'react'
 import classes from './ProfileInfo.module.css'
 import Preloader from '../../common/Preloader/Preloader'
 import UserPhoto from '../../../accets/NAvatar.png'
-import ProfileStatus from './ProfileStatus'
 import ProfileStatusHook from './ProfileStatusHook'
 
 

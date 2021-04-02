@@ -3,7 +3,6 @@ import './index.css'
 import profile from './user.svg';
 import users from './../../accets/group.svg'
 import message from './message.svg';
-import news from './newspaper.svg'
 import { NavLink } from 'react-router-dom';
 
 export default function Navigation() {
